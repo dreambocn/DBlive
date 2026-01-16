@@ -2,9 +2,11 @@ backend/sqlite/*.db
 backend/sqlite/*.db-journal
 backend/bin/
 backend/.vscode/
+.vscode/
 frontend/node_modules/
 frontend/dist/
 frontend/.vscode/
 frontend/package-lock.json
 frontend/.env
+AGENTS.md
 .env

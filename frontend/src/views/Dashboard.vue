@@ -1,3 +1,4 @@
+<!-- 旧版仪表盘页面 -->
 <template>
   <div class="card">
     <h2>{{ t("dashboardTitle") }}</h2>
@@ -35,6 +36,7 @@ const refreshToken = computed(() => authState.refreshToken);
 const user = computed(() => authState.user);
 
 onMounted(async () => {
+  // 进入页面时补齐用户信息
   if (!authState.user) {
     try {
       await fetchMe();
@@ -50,3 +52,4 @@ const handleLogout = async () => {
   router.push("/login");
 };
 </script>
+

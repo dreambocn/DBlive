@@ -1,4 +1,6 @@
+/* 全局样式与主题变量 */
 :root {
+  /* 主题色与基础配色 */
   --bg-start: #f4f7ff;
   --bg-end: #e9f1ff;
   --surface: #ffffff;
@@ -12,6 +14,7 @@
 }
 
 :root.dark {
+  /* 深色主题变量 */
   --bg-start: #0f172a;
   --bg-end: #101b34;
   --surface: #16213a;
@@ -29,6 +32,7 @@
 }
 
 body {
+  /* 使用渐变作为背景氛围 */
   margin: 0;
   font-family: "Space Grotesk", "Segoe UI", sans-serif;
   background: radial-gradient(circle at top left, var(--bg-start), var(--bg-end));
@@ -64,18 +68,42 @@ body {
 .content {
   flex: 1;
   display: flex;
-  align-items: center;
   justify-content: center;
   padding: 2rem;
 }
 
+.content--center {
+  /* 普通页面居中 */
+  align-items: center;
+}
+
+.content--dashboard {
+  /* 控制台页面随视口拉伸 */
+  align-items: stretch;
+}
+
 .panel {
+  /* 主要面板卡片样式 */
   width: min(420px, 100%);
   background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: 0 25px 50px -30px var(--shadow);
   border-radius: 18px;
   padding: 2.5rem;
+}
+
+.panel--wide {
+  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+}
+
+.panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .panel h1 {
@@ -120,6 +148,10 @@ button.secondary {
   border: 1px solid var(--border);
 }
 
+button.danger {
+  background: var(--danger);
+}
+
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -147,6 +179,231 @@ button:disabled {
   border: 1px solid var(--border);
 }
 
+.dashboard-shell {
+  /* 控制台双栏布局 */
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+}
+
+.dashboard-nav {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-height: 100%;
+}
+
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nav-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.nav-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.nav-link {
+  padding: 0.65rem 0.9rem;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid transparent;
+  background: var(--surface-2);
+}
+
+.nav-link.router-link-active {
+  border-color: var(--border);
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--text);
+}
+
+.nav-logout {
+  margin-top: auto;
+}
+
+.dashboard-main {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 100%;
+  width: 100%;
+}
+
+.cookie-grid {
+  /* Cookie授权页左右分栏 */
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+}
+
+.cookie-status {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.status-avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.status-avatar img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  object-fit: cover;
+}
+
+.status-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+}
+
+.status-item strong {
+  color: var(--text);
+}
+
+.cookie-qr {
+  display: grid;
+  justify-items: center;
+  gap: 0.75rem;
+}
+
+.qr-frame {
+  width: 220px;
+  height: 220px;
+  border-radius: 18px;
+  border: 1px dashed var(--border);
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.qr-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.qr-placeholder {
+  color: var(--muted);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.95rem;
+}
+
+.qr-hint {
+  color: var(--muted);
+  margin: 0;
+}
+
+.record-form {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.form-error {
+  color: var(--danger);
+}
+
+.form-success {
+  color: var(--primary);
+}
+
+.record-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.record-card {
+  /* 录制任务卡片 */
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  padding: 1.25rem;
+  border-radius: 16px;
+  display: grid;
+  gap: 1rem;
+}
+
+.record-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.record-head h3 {
+  margin: 0;
+}
+
+.record-head p {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.record-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.5rem;
+  color: var(--muted);
+}
+
+.record-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.badge {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--muted);
+  height: fit-content;
+}
+
+.empty-state {
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+
 @media (max-width: 720px) {
   .topbar {
     flex-direction: column;
@@ -156,4 +413,13 @@ button:disabled {
   .panel {
     padding: 2rem;
   }
+
+  .dashboard-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .cookie-grid {
+    grid-template-columns: 1fr;
+  }
 }
+

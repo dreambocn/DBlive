@@ -1,3 +1,4 @@
+<!-- 登录页面 -->
 <template>
   <section class="panel">
     <h1>{{ t("loginTitle") }}</h1>
@@ -38,6 +39,7 @@ const handleLogin = async () => {
   error.value = "";
   loading.value = true;
   try {
+    // 登录成功后跳转到控制台
     await login(username.value, password.value);
     router.push("/app");
   } catch (err) {
@@ -47,3 +49,4 @@ const handleLogin = async () => {
   }
 };
 </script>
+
