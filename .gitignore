@@ -4,6 +4,7 @@ backend/bin/
 backend/.vscode/
 frontend/node_modules/
 frontend/dist/
+frontend/.vscode/
 frontend/package-lock.json
 frontend/.env
 .env
