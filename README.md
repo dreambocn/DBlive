@@ -34,3 +34,10 @@ docker compose up --build
 服务地址：
 - 后端: `http://localhost:8080`
 - 前端: `http://localhost:5173`
+
+## 单容器 Docker
+
+```bash
+docker build -t dblive:latest .
+docker run -p 8080:8080 dblive:latest
+```

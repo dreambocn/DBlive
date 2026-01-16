@@ -2,6 +2,8 @@ package main
 
 import (
     "log"
+    "net/http"
+    "strings"
 
     "github.com/gin-gonic/gin"
 
@@ -57,6 +59,15 @@ func main() {
         }
         api.GET("/me", middleware.AuthRequired(cfg), authHandler.Me)
     }
+
+    r.Static("/assets", "./public/assets")
+    r.NoRoute(func(c *gin.Context) {
+        if strings.HasPrefix(c.Request.URL.Path, "/api/") {
+            c.JSON(http.StatusNotFound, gin.H{"error": "not found"})
+            return
+        }
+        c.File("./public/index.html")
+    })
 
     appLogger.Info("server starting", logger.String("addr", cfg.ServerAddr))
     if err := r.Run(cfg.ServerAddr); err != nil {
