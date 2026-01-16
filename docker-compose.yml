@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    image: dblive-backend:latest
+    ports:
+      - "8080:8080"
+    environment:
+      DBL_SERVER_ADDR: ":8080"
+      DBL_DB_PATH: "/app/sqlite/dblive.db"
+      DBL_JWT_SECRET: "change-me"
+      DBL_ALLOW_ORIGIN: "*"
+    volumes:
+      - ./backend/sqlite:/app/sqlite
+
+  frontend:
+    build:
+      context: ./frontend
+    image: dblive-frontend:latest
+    ports:
+      - "5173:80"
+    environment:
+      VITE_API_URL: "http://localhost:8080"
+    depends_on:
+      - backend

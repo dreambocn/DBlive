@@ -24,3 +24,13 @@ npm run dev
 ```
 
 前端默认请求 `http://localhost:8080`，可以通过 `VITE_API_URL` 指定。
+
+## Docker Compose
+
+```bash
+docker compose up --build
+```
+
+服务地址：
+- 后端: `http://localhost:8080`
+- 前端: `http://localhost:5173`
