@@ -1,0 +1,159 @@
+:root {
+  --bg-start: #f4f7ff;
+  --bg-end: #e9f1ff;
+  --surface: #ffffff;
+  --surface-2: #f2f5fb;
+  --text: #1f2a44;
+  --muted: #667190;
+  --primary: #2563eb;
+  --danger: #ef4444;
+  --border: #dbe3f2;
+  --shadow: rgba(31, 42, 68, 0.08);
+}
+
+:root.dark {
+  --bg-start: #0f172a;
+  --bg-end: #101b34;
+  --surface: #16213a;
+  --surface-2: #1f2c4a;
+  --text: #e5ecff;
+  --muted: #a8b3d9;
+  --primary: #38bdf8;
+  --danger: #f87171;
+  --border: #253255;
+  --shadow: rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, var(--bg-start), var(--bg-end));
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.topbar-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.panel {
+  width: min(420px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 25px 50px -30px var(--shadow);
+  border-radius: 18px;
+  padding: 2.5rem;
+}
+
+.panel h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+}
+
+.panel p {
+  color: var(--muted);
+  margin: 0 0 1.5rem 0;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+button {
+  border: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: min(520px, 100%);
+}
+
+.stat {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+}
+
+.toggle {
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .panel {
+    padding: 2rem;
+  }
+}

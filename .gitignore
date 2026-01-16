@@ -1,0 +1,6 @@
+backend/sqlite/*.db
+backend/sqlite/*.db-journal
+backend/bin/
+frontend/node_modules/
+frontend/dist/
+.env
